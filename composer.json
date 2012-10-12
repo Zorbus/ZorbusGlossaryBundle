@@ -22,14 +22,13 @@
     "require-dev": {
         "twig/twig": "*",
         "swiftmailer/swiftmailer": "*",
-        "willdurand/propel-typehintable-behavior": "dev-master",
         "symfony/yaml": "2.1.*",
         "symfony/validator": "2.1.*"
     },
     "autoload": {
-        "psr-0": { "Zorbus\\GloassryBundle": "" }
+        "psr-0": { "Zorbus\\GlossaryBundle": "" }
     },
-    "target-dir": "Zorbus/GloassryBundle",
+    "target-dir": "Zorbus/GlossaryBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "0.0.*-dev"

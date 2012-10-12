@@ -1,6 +1,6 @@
 Zorbus\GlossaryBundle\Entity\Glossary:
     type: entity
-    table: zorbus_gloassary
+    table: zorbus_glossary
     repositoryClass: Zorbus\GlossaryBundle\Entity\GlossaryRepository
     id:
         id:
