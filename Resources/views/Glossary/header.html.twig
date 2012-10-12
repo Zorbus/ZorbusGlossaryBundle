@@ -1,0 +1,7 @@
+<div id="letters">
+{% for letter in letters %}
+    <span><a href="{{ path('zorbus_glossary_letter', { 'letter': letter }) }}">{{ letter }}</a></span>
+{% else %}
+    <span>No entries available.</span>
+{% endfor %}
+</div>

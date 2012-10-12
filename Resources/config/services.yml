@@ -1,0 +1,7 @@
+parameters:
+#    zorbus_glossary.example.class: Zorbus\GlossaryBundle\Example
+
+services:
+#    zorbus_glossary.example:
+#        class: %zorbus_glossary.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

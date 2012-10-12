@@ -1,0 +1,38 @@
+{
+    "name": "zorbus/glossary-bundle",
+    "type": "symfony-bundle",
+    "description": "A Symfony2 Glossary bundle",
+    "keywords": ["User management"],
+    "homepage": "https://github.com/Zorbus",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tito Miguel Costa",
+            "email": "zorbus@titomiguelcosta.com",
+            "homepage": "http://www.titomiguelcosta.com/"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": ">=2.1,<2.3-dev",
+        "stof/doctrine-extensions-bundle": "*",
+        "doctrine/doctrine-bundle": "*"
+    },
+    "require-dev": {
+        "twig/twig": "*",
+        "swiftmailer/swiftmailer": "*",
+        "willdurand/propel-typehintable-behavior": "dev-master",
+        "symfony/yaml": "2.1.*",
+        "symfony/validator": "2.1.*"
+    },
+    "autoload": {
+        "psr-0": { "Zorbus\\GloassryBundle": "" }
+    },
+    "target-dir": "Zorbus/GloassryBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.0.*-dev"
+        }
+    }
+}

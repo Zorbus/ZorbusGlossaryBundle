@@ -1,0 +1,42 @@
+Zorbus\GlossaryBundle\Entity\Glossary:
+    type: entity
+    table: zorbus_gloassary
+    repositoryClass: Zorbus\GlossaryBundle\Entity\GlossaryRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        letter:
+            type: string
+            length: 1
+            nullable: false
+        title:
+            type: string
+            length: 255
+            nullable: false
+        description:
+            type: text
+        slug:
+            type: string
+            length: 255
+            gedmo:
+                slug:
+                    separator: '-'
+                    style: default
+                    fields:
+                        - title
+        enabled:
+            type: boolean
+            default: true
+            nullable: true
+        created_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated_at:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update

@@ -1,0 +1,18 @@
+{% extends 'ZorbusGlossaryBundle::layout.html.twig' %}
+
+{% block body %}
+    {% render 'ZorbusGlossaryBundle:Glossary:header' %}
+
+    <div id="entries">
+        {% if entries | length > 0 %}
+            <dl>
+            {% for entry in entries %}
+                <dt><a href="{{ path('zorbus_glossary_entry', { 'slug': entry.slug }) }}">{{ entry.title }}</a></dt>
+                <dd>{{ entry.description | raw }}</dd>
+            {% endfor %}
+            </dl>
+        {% else %}
+                <p>No entries available for letter '{{ letter }}'.</p>
+        {% endif %}
+    </div>
+{% endblock %}

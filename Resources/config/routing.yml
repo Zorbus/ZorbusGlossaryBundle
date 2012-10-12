@@ -1,0 +1,11 @@
+zorbus_glossary_homepage:
+    pattern:  /
+    defaults: { _controller: ZorbusGlossaryBundle:Glossary:index }
+zorbus_glossary_letter:
+    pattern:  /{letter}
+    defaults: { _controller: ZorbusGlossaryBundle:Glossary:letter }
+    requirements:
+        letter: "[a-zA-Z]{1}"
+zorbus_glossary_entry:
+    pattern:  /entry/{slug}
+    defaults: { _controller: ZorbusGlossaryBundle:Glossary:entry }
