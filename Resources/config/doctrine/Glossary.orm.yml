@@ -50,4 +50,4 @@ Zorbus\GlossaryBundle\Entity\Glossary:
             targetEntity: Zorbus\GlossaryBundle\Entity\Glossary
             mappedBy: glossary
             orderBy:
-                expression: ASC
+                title: ASC
