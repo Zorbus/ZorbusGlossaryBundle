@@ -1,26 +1,23 @@
-Zorbus\GlossaryBundle\Entity\Glossary:
+Zorbus\GlossaryBundle\Entity\Entry:
     type: entity
-    table: zorbus_glossary_glossary
-    repositoryClass: Zorbus\GlossaryBundle\Entity\GlossaryRepository
+    table: zorbus_glossary_entry
+    repositoryClass: Zorbus\GlossaryBundle\Entity\EntryRepository
     id:
         id:
             type: integer
             generator: { strategy: AUTO }
     fields:
-        identifier:
+        letter:
+            type: string
+            length: 1
+            nullable: false
+        expression:
             type: string
             length: 255
             nullable: false
-        letters:
-            type: string
-            length: 255
-            nullable: false
-        title:
-            type: string
-            length: 255
-            nullable: false
-        description:
+        definition:
             type: text
+            nullable: false
         slug:
             type: string
             length: 255
@@ -29,7 +26,7 @@ Zorbus\GlossaryBundle\Entity\Glossary:
                     separator: '-'
                     style: default
                     fields:
-                        - title
+                        - expression
         enabled:
             type: boolean
             default: true
@@ -44,10 +41,11 @@ Zorbus\GlossaryBundle\Entity\Glossary:
             gedmo:
                 timestampable:
                     on: update
-
-    oneToMany:
-        entries:
+    manyToOne:
+        glossary:
             targetEntity: Zorbus\GlossaryBundle\Entity\Glossary
-            mappedBy: glossary
-            orderBy:
-                expression: ASC
+            inversedBy: entries
+            joinColumn:
+                name: glossary_id
+                referencedColumnName: id
+                onDelete: CASCADE
