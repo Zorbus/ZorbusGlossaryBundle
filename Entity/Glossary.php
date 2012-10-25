@@ -9,6 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Glossary
 {
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
     /**
      * @var integer $id
      */
@@ -66,11 +70,11 @@ class Glossary
     {
         $this->entries = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -86,14 +90,14 @@ class Glossary
     public function setIdentifier($identifier)
     {
         $this->identifier = $identifier;
-    
+
         return $this;
     }
 
     /**
      * Get identifier
      *
-     * @return string 
+     * @return string
      */
     public function getIdentifier()
     {
@@ -109,14 +113,14 @@ class Glossary
     public function setLetters($letters)
     {
         $this->letters = $letters;
-    
+
         return $this;
     }
 
     /**
      * Get letters
      *
-     * @return string 
+     * @return string
      */
     public function getLetters()
     {
@@ -132,14 +136,14 @@ class Glossary
     public function setTitle($title)
     {
         $this->title = $title;
-    
+
         return $this;
     }
 
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -155,14 +159,14 @@ class Glossary
     public function setDescription($description)
     {
         $this->description = $description;
-    
+
         return $this;
     }
 
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -178,14 +182,14 @@ class Glossary
     public function setSlug($slug)
     {
         $this->slug = $slug;
-    
+
         return $this;
     }
 
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -201,14 +205,14 @@ class Glossary
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
-    
+
         return $this;
     }
 
     /**
      * Get enabled
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEnabled()
     {
@@ -224,14 +228,14 @@ class Glossary
     public function setCreatedAt($createdAt)
     {
         $this->created_at = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get created_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -247,14 +251,14 @@ class Glossary
     public function setUpdatedAt($updatedAt)
     {
         $this->updated_at = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updated_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -270,7 +274,7 @@ class Glossary
     public function addEntrie(\Zorbus\GlossaryBundle\Entity\Glossary $entries)
     {
         $this->entries[] = $entries;
-    
+
         return $this;
     }
 
@@ -287,7 +291,7 @@ class Glossary
     /**
      * Get entries
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\Collection
      */
     public function getEntries()
     {
