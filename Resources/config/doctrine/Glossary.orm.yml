@@ -47,7 +47,7 @@ Zorbus\GlossaryBundle\Entity\Glossary:
 
     oneToMany:
         entries:
-            targetEntity: Zorbus\GlossaryBundle\Entity\Glossary
+            targetEntity: Zorbus\GlossaryBundle\Entity\Entry
             mappedBy: glossary
             orderBy:
-                title: ASC
+                expression: ASC
