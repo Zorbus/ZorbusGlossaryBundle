@@ -1,7 +1,25 @@
 parameters:
-#    zorbus_glossary.example.class: Zorbus\GlossaryBundle\Example
+    zorbus_glossary.glossary.admin.class: Zorbus\GlossaryBundle\Admin\GlossaryAdmin
+    zorbus_glossary.entry.admin.class: Zorbus\GlossaryBundle\Admin\EntryAdmin
+
+    zorbus_glossary.glossary.entity.class: Zorbus\GlossaryBundle\Entity\Glossary
+    zorbus_glossary.entry.entity.class: Zorbus\GlossaryBundle\Entity\Entry
+
+    zorbus_glossary.glossary.controller.class: SonataAdminBundle:CRUD
+    zorbus_glossary.entry.controller.class: SonataAdminBundle:CRUD
 
 services:
-#    zorbus_glossary.example:
-#        class: %zorbus_glossary.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    zorbus_glossary.glossary.glossary.admin:
+        class: %zorbus_glossary.glossary.admin.class%
+        arguments: [~, %zorbus_glossary.glossary.entity.class%, %zorbus_glossary.glossary.controller.class%]
+        calls:
+            - [setTranslationDomain, [GlossaryBundle]]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Glossaries, label: Glossaries }
+    zorbus_glossary.glossary.entry.admin:
+        class: %zorbus_glossary.entry.admin.class%
+        arguments: [~, Zorbus\GlossaryBundle\Entity\Entry, %zorbus_glossary.entry.controller.class%]
+        calls:
+            - [setTranslationDomain, [GlossaryBundle]]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Glossaries, label: Entrys }

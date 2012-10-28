@@ -7,12 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Zorbus\GlossaryBundle\Entity\Glossary
  */
-class Glossary
+class Glossary extends Base\Glossary
 {
-    public function __toString()
-    {
-        return $this->getTitle();
-    }
+
     /**
      * @var integer $id
      */
@@ -297,4 +294,5 @@ class Glossary
     {
         return $this->entries;
     }
+
 }

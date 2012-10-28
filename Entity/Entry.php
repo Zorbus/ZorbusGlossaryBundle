@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Zorbus\GlossaryBundle\Entity\Entry
  */
-class Entry
+class Entry extends Base\Entry
 {
     /**
      * @var integer $id
@@ -58,7 +58,7 @@ class Entry
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -74,14 +74,14 @@ class Entry
     public function setLetter($letter)
     {
         $this->letter = $letter;
-    
+
         return $this;
     }
 
     /**
      * Get letter
      *
-     * @return string 
+     * @return string
      */
     public function getLetter()
     {
@@ -97,14 +97,14 @@ class Entry
     public function setExpression($expression)
     {
         $this->expression = $expression;
-    
+
         return $this;
     }
 
     /**
      * Get expression
      *
-     * @return string 
+     * @return string
      */
     public function getExpression()
     {
@@ -120,14 +120,14 @@ class Entry
     public function setDefinition($definition)
     {
         $this->definition = $definition;
-    
+
         return $this;
     }
 
     /**
      * Get definition
      *
-     * @return string 
+     * @return string
      */
     public function getDefinition()
     {
@@ -143,14 +143,14 @@ class Entry
     public function setSlug($slug)
     {
         $this->slug = $slug;
-    
+
         return $this;
     }
 
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -166,14 +166,14 @@ class Entry
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
-    
+
         return $this;
     }
 
     /**
      * Get enabled
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEnabled()
     {
@@ -189,14 +189,14 @@ class Entry
     public function setCreatedAt($createdAt)
     {
         $this->created_at = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get created_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -212,14 +212,14 @@ class Entry
     public function setUpdatedAt($updatedAt)
     {
         $this->updated_at = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updated_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -235,14 +235,14 @@ class Entry
     public function setGlossary(\Zorbus\GlossaryBundle\Entity\Glossary $glossary = null)
     {
         $this->glossary = $glossary;
-    
+
         return $this;
     }
 
     /**
      * Get glossary
      *
-     * @return Zorbus\GlossaryBundle\Entity\Glossary 
+     * @return Zorbus\GlossaryBundle\Entity\Glossary
      */
     public function getGlossary()
     {
