@@ -22,4 +22,4 @@ services:
         calls:
             - [setTranslationDomain, [GlossaryBundle]]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Glossaries, label: Entrys }
+            - { name: sonata.admin, manager_type: orm, group: Glossaries, label: Entries }
