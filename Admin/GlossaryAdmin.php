@@ -14,7 +14,7 @@ class GlossaryAdmin extends Admin
         $formMapper
             ->add('letters')
             ->add('title')
-            ->add('description')
+            ->add('description', 'textarea', array('attr' => array('class' => 'ckeditor')))
             ->add('enabled', null, array('required' => false))
         ;
     }

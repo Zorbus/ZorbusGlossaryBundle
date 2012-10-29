@@ -15,7 +15,7 @@ class EntryAdmin extends Admin
             ->add('letter')
             ->add('glossary')
             ->add('expression')
-            ->add('definition')
+            ->add('definition', 'textarea', array('attr' => array('class' => 'ckeditor')))
             ->add('enabled', null, array('required' => false))
         ;
     }
