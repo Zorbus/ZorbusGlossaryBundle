@@ -17,6 +17,7 @@ Zorbus\GlossaryBundle\Entity\Glossary:
             nullable: false
         description:
             type: text
+            nullable: true
         slug:
             type: string
             length: 255

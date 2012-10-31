@@ -12,10 +12,10 @@ class EntryAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('letter')
-            ->add('glossary')
+            ->add('letter', null, array('label' => 'Caracter',  'attr' => array('class' => 'span1')))
+            ->add('glossary', null, array('required' => true, 'attr' => array('class' => 'span5 select2')))
             ->add('expression')
-            ->add('definition', 'textarea', array('attr' => array('class' => 'ckeditor')))
+            ->add('definition', 'textarea', array('required' => false, 'attr' => array('class' => 'ckeditor')))
             ->add('enabled', null, array('required' => false))
         ;
     }
@@ -42,7 +42,20 @@ class EntryAdmin extends Admin
     public function validate(ErrorElement $errorElement, $object)
     {
         $errorElement
+            ->with('letter')
+                ->assertNotBlank()
+                ->assertMaxLength(array('limit' => 1))
+            ->end()
+            ->with('glossary')
+                ->assertNotBlank()
+                ->assertMaxLength(array('limit' => 255))
+            ->end()
             ->with('expression')
+                ->assertNotBlank()
+                ->assertMaxLength(array('limit' => 255))
+            ->end()
+            ->with('definition')
+                ->assertNotBlank()
                 ->assertMaxLength(array('limit' => 255))
             ->end()
         ;

@@ -12,9 +12,9 @@ class GlossaryAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('letters')
+            ->add('letters', null, array('label' => 'Caracters'))
             ->add('title')
-            ->add('description', 'textarea', array('attr' => array('class' => 'ckeditor')))
+            ->add('description', 'textarea', array('required' => false, 'attr' => array('class' => 'ckeditor')))
             ->add('enabled', null, array('required' => false))
         ;
     }
@@ -39,7 +39,12 @@ class GlossaryAdmin extends Admin
     public function validate(ErrorElement $errorElement, $object)
     {
         $errorElement
+            ->with('letters')
+                ->assertNotBlank()
+                ->assertMaxLength(array('limit' => 255))
+            ->end()
             ->with('title')
+                ->assertNotBlank()
                 ->assertMaxLength(array('limit' => 255))
             ->end()
         ;
