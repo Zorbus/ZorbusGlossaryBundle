@@ -23,7 +23,7 @@ class BlockController extends Controller
             }
         }
 
-        return $this->render('ZorbusBlockBundle:Block:default.html.twig', array(
+        return $this->render('ZorbusGlossaryBundle:Block:default.html.twig', array(
             'block' => $block, 'glossary' => $glossary, 'entries' => $entries, 'letters' => $letters
         ));
     }
@@ -48,7 +48,7 @@ class BlockController extends Controller
                 $entries[$hash][] = $entry;
             }
         }
-        return $this->render('ZorbusBlockBundle:Block:all.html.twig', array(
+        return $this->render('ZorbusGlossaryBundle:Block:all.html.twig', array(
             'block' => $block, 'glossary' => $glossary, 'entries' => $entries, 'letters' => $letters
         ));
     }
