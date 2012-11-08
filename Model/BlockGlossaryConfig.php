@@ -15,8 +15,8 @@ class BlockGlossaryConfig extends BlockConfig
         parent::__construct('zorbus_block.service.glossary', 'Glossary Block', $admin, $formFactory);
         $this->enabled = true;
         $this->themes = array(
-            'ZorbusBlockBundle:Glossary:default' => 'Default',
-            'ZorbusBlockBundle:Glossary:all' => 'All caracters'
+            'ZorbusGlossaryBundle:Glossary:default' => 'List only caracters with entries',
+            'ZorbusGlossaryBundle:Glossary:all' => 'List all caracters'
             );
         $this->httpKernel = $httpKernel;
     }
