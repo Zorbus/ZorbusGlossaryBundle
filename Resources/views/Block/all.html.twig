@@ -1,0 +1,29 @@
+<div class="row-fluid">
+    <h2>{{ glossary }}</h2>
+    <ul class="nav nav-tabs">
+        {% for hash, letter in letters %}
+        <li{% if loop.first %} class="active"{% endif %}>
+            <a href="#letter_all_{{ hash }}" class="{% if entries[hash] is not defined %}disabled{% else %}enabled{% endif %}" {% if entries[hash] is defined %} data-toggle="tab"{% endif %}>{{ letter }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="tab-content">
+        {% for hash, letter in letters %}
+            {% if entries[hash] is defined %}
+            <div class="tab-pane{% if loop.first %} active{% endif %}" id="letter_all_{{ hash }}">
+                <dl>
+                {% for entry in entries[hash] %}
+                    <dt>{{ entry.expression }}</dt>
+                    <dd>{{ entry.definition | raw }}</dd>
+                {% endfor %}
+                </dl>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+<style type="text/css">
+.disabled {
+    color: #ddd !important;
+}
+</style>

@@ -8,6 +8,8 @@ parameters:
     zorbus_glossary.glossary.controller.class: SonataAdminBundle:CRUD
     zorbus_glossary.entry.controller.class: SonataAdminBundle:CRUD
 
+    zorbus_block.service.glossary.class: Zorbus\GlossaryBundle\Model\BlockGlossaryConfig
+
 services:
     zorbus_glossary.glossary.glossary.admin:
         class: %zorbus_glossary.glossary.admin.class%
@@ -23,3 +25,9 @@ services:
             - [setTranslationDomain, [GlossaryBundle]]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Glossaries, label: Entries }
+    zorbus_block.service.glossary:
+        class: %zorbus_block.service.glossary.class%
+        scope: prototype
+        arguments: ['@zorbus_block.block.admin', '@form.factory', '@http_kernel']
+        tags:
+            - { name: zorbus_block.block, category: Glossaries }
