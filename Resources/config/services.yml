@@ -11,21 +11,21 @@ parameters:
     zorbus_block.service.glossary.class: Zorbus\GlossaryBundle\Model\BlockGlossaryConfig
 
 services:
-    zorbus_glossary.glossary.glossary.admin:
+    zorbus_glossary.glossary.admin:
         class: %zorbus_glossary.glossary.admin.class%
         arguments: [~, %zorbus_glossary.glossary.entity.class%, %zorbus_glossary.glossary.controller.class%]
         calls:
             - [setTranslationDomain, [GlossaryBundle]]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Glossaries, label: Glossaries }
-    zorbus_glossary.glossary.entry.admin:
+    zorbus_glossary.entry.admin:
         class: %zorbus_glossary.entry.admin.class%
         arguments: [~, Zorbus\GlossaryBundle\Entity\Entry, %zorbus_glossary.entry.controller.class%]
         calls:
             - [setTranslationDomain, [GlossaryBundle]]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Glossaries, label: Entries }
-    zorbus_block.service.glossary:
+    zorbus_glossary.block.glossary:
         class: %zorbus_block.service.glossary.class%
         scope: prototype
         arguments: ['@zorbus_block.block.admin', '@form.factory', '@http_kernel']
