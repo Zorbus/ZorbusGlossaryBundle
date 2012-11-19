@@ -4,17 +4,32 @@ namespace Zorbus\GlossaryBundle\Admin;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
-use Sonata\AdminBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Form\FormMapper;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\MaxLength;
 
 class GlossaryAdmin extends Admin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('letters', null, array('label' => 'Caracters'))
-            ->add('title')
-            ->add('description', 'textarea', array('required' => false, 'attr' => array('class' => 'ckeditor')))
+            ->add('letters', null, array(
+                'label' => 'Caracters',
+                'constraints' => array(
+                    new NotBlank(),
+                    new MaxLength(array('limit' => 255))
+                )
+            ))
+            ->add('title', null, array(
+                'constraints' => array(
+                    new NotBlank(),
+                    new MaxLength(array('limit' => 255))
+                )
+            ))
+            ->add('description', 'textarea', array(
+                'required' => false,
+                'attr' => array('class' => 'ckeditor')
+            ))
             ->add('enabled', null, array('required' => false))
         ;
     }
@@ -36,17 +51,4 @@ class GlossaryAdmin extends Admin
         ;
     }
 
-    public function validate(ErrorElement $errorElement, $object)
-    {
-        $errorElement
-            ->with('letters')
-                ->assertNotBlank()
-                ->assertMaxLength(array('limit' => 255))
-            ->end()
-            ->with('title')
-                ->assertNotBlank()
-                ->assertMaxLength(array('limit' => 255))
-            ->end()
-        ;
-    }
 }

@@ -15,14 +15,14 @@ services:
         class: %zorbus_glossary.glossary.admin.class%
         arguments: [~, %zorbus_glossary.glossary.entity.class%, %zorbus_glossary.glossary.controller.class%]
         calls:
-            - [setTranslationDomain, [GlossaryBundle]]
+            - [setTranslationDomain, [ZorbusGlossaryBundle]]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Glossaries, label: Glossaries }
     zorbus_glossary.entry.admin:
         class: %zorbus_glossary.entry.admin.class%
         arguments: [~, Zorbus\GlossaryBundle\Entity\Entry, %zorbus_glossary.entry.controller.class%]
         calls:
-            - [setTranslationDomain, [GlossaryBundle]]
+            - [setTranslationDomain, [ZorbusGlossaryBundle]]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Glossaries, label: Entries }
     zorbus_glossary.block.glossary:
